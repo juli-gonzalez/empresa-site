@@ -1,50 +1,68 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+  Sync Impact Report
+  Version change: n/a (initial ratification) → 1.0.0
+  Modified principles: none (initial)
+  Added: Principles I-V, Section: Stack & Dependencies, Section: Development Workflow
+  Removed: none
+  Templates requiring updates: plan ✅ (Constitution Check gate), spec ✅, tasks ✅
+  Follow-up TODOs: none deferred
+-->
+# Empresa-Site Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Resultados de negocio, no tecnología (NON-NEGOTIABLE)
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+El sitio público vende resultados al cliente: métricas, soluciones
+implementadas y confianza. El contenido NO debe exponer tecnologías,
+lenguajes, frameworks ni detalles de implementación interna. Cualquier
+mención de stack es ruido para el decisor de compra.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Landing estática, sin frameworks (NON-NEGOTIABLE)
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+El sitio es HTML/CSS/JS vanilla: cero dependencias, cero build, cero
+runtime. No se agrega ninguna librería externa salvo que exista una razón
+de producto verificable. Si un cambio requiere una dependencia, el plan
+debe justificarlo explícitamente.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Accesibilidad y movimiento reducido
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Todo efecto de motion (animaciones, carousel, autoplay) debe respetar
+`prefers-reduced-motion` y no bloquear la navegación ni el contenido si
+JavaScript no está disponible. Contraste legible en todo estado.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Placeholders explícitos
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Todo dato real de la empresa (nombre, dominio, testimonios, clientes,
+métricas, contacto, redes) se marca como placeholder editable
+(`TU-EMPRESA`, `TU-CLIENTE-1`, etc.) para reemplazo global posterior. No
+inventar datos reales.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Simplicidad y YAGNI
+
+El código más corto que funciona es el correcto. Se reusa lo existente
+antes de reimplementar. No se agregan secciones, abstracciones ni features
+especulativas. El detalle de cada atajo consciente se marca con un
+comentario `ponytail:` que nombre el techo y el camino de upgrade.
+
+## Stack & Dependencies
+
+- Archivos: `index.html`, `style.css`, `script.js`, `favicon.svg`, `og-image.svg`.
+- Sin fuentes locales: Google Fonts (Sora + Inter) vía `<link>`, con fallback `system-ui`.
+- Sin backend en esta iteración: el formulario usa `mailto:` provisional (marcado `ponytail:`); el envío real (SMTP/servicio) se define en deploy con dominio.
+- Feature "casos de uso interactivo" (sección no-landing que guía al usuario) queda fuera del sitio público; se planifica como feature futura separada.
+
+## Development Workflow
+
+- Toda feature o cambio de comportamiento pasa por Spec Kit: `/speckit-specify` → `/speckit-plan` → `/speckit-tasks` → `/speckit-implement`. Ver `specs/FEATURES.md` para estado por feature.
+- El spec se escribe sin detalles de implementación (WHAT/WHY, no HOW).
+- Se respeta el estilo existente de los archivos; difs cortos; no reformatear código ajeno al cambio.
+- Verificación: `node --check script.js` + inspección visual en navegador (abrir `index.html`). No hay suite de tests; no se inventa una.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- La constitución se enmienda por PR que documente, apruebe y describa la migración.
+- Cada feature actualiza su fila en `specs/FEATURES.md` (estado, horas reales). La aprobación la da una persona distinta de quien implementa — nunca auto-aprobación.
+- Si un cambio contradice un principio NON-NEGOTIABLE, requiere enmienda de constitución antes de implementarse.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-08-08 | **Last Amended**: 2026-08-08

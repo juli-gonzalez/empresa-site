@@ -33,7 +33,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -43,8 +43,7 @@
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
       <ul class="nav-links">
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#casos">Casos de uso</a></li>
-        <li><a href="#stack">Stack</a></li>
+        <li><a href="#casos">Soluciones</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contacto" class="btn btn-primary">Contáctanos</a></li>
       </ul>
@@ -57,13 +56,17 @@
       <div class="hero-grid"></div>
       <div class="hero-glow"></div>
       <div class="container hero-inner">
-        <p class="hero-eyebrow reveal">Software · Seguridad · Ingeniería · IA</p>
+        <ul class="hero-bus reveal" aria-label="Software, Seguridad, Ingeniería e IA">
+          <li>Software</li>
+          <li>Seguridad</li>
+          <li>Ingeniería</li>
+          <li>IA</li>
+        </ul>
         <h1 class="reveal">Integramos la tecnología que tu empresa necesita.</h1>
         <p class="hero-sub reveal">Desarrollo de software a medida, sistemas de vigilancia, ingeniería y agentes de inteligencia artificial — todo bajo un mismo techo.</p>
         <div class="hero-cta reveal">
           <a href="#contacto" class="btn btn-primary">Hablemos de tu proyecto</a>
           <a href="TU-CALENDAR" target="_blank" rel="noopener" class="btn btn-ghost">Agendar reunión</a>
-          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
         </div>
         <div class="hero-meta reveal">
           <span>✓ Soluciones a medida</span>
@@ -162,42 +165,49 @@
       </div>
     </section>
 
-    <!-- CASOS DE USO -->
+    <!-- SOLUCIONES -->
     <section id="casos" class="section section-alt">
       <div class="container">
-        <h2 class="reveal">Casos de uso</h2>
-        <p class="section-sub reveal">Así se traduce cada servicio en problemas resueltos.</p>
+        <h2 class="reveal">Soluciones implementadas</h2>
+        <p class="section-sub reveal">Proyectos que ya funcionan y los resultados que generaron.</p>
         <div class="grid cases">
-          <article class="card case reveal">
-            <span class="case-tag">Software</span>
-            <h3>Automatización de operaciones</h3>
-            <p>Integramos sistemas internos que eliminan tareas manuales y reducen errores.</p>
+          <article class="card case case-featured reveal">
+            <div class="case-result-head">
+              <span class="case-tag">TU-CLIENTE</span>
+              <span class="case-metric">+40%</span>
+            </div>
+            <h3>Eficiencia operativa</h3>
+            <p>Integración de software, cámaras e IA en una sola plataforma. Menos tareas manuales, menos errores.</p>
           </article>
           <article class="card case reveal">
-            <span class="case-tag">Seguridad</span>
-            <h3>Videovigilancia con IA</h3>
+            <span class="case-tag">Automatización</span>
+            <span class="case-metric">-30%</span>
+            <h3>Tiempo de operación</h3>
+            <p>Sistemas internos que eliminan tareas repetitivas en el día a día del equipo.</p>
+          </article>
+          <article class="card case reveal">
+            <span class="case-tag">Videovigilancia</span>
+            <span class="case-metric">24/7</span>
+            <h3>Monitoreo con IA</h3>
             <p>Cámaras con detección inteligente: alertas en tiempo real, no solo grabación.</p>
           </article>
           <article class="card case reveal">
-            <span class="case-tag">IA</span>
-            <h3>Agente de atención al cliente</h3>
-            <p>Un asistente entrenado con tu negocio que responde y deriva cuando hace falta.</p>
+            <span class="case-tag">Atención al cliente</span>
+            <span class="case-metric">70%</span>
+            <h3>Consultas resueltas</h3>
+            <p>Un agente de IA entrenado con el negocio que responde y deriva cuando hace falta.</p>
           </article>
           <article class="card case reveal">
-            <span class="case-tag">Ingeniería</span>
-            <h3>Arquitectura de sistemas</h3>
-            <p>Diseñamos la base técnica que soporta el crecimiento sin tirar todo abajo.</p>
-          </article>
-          <article class="card case reveal case-result">
-            <span class="case-tag">Resultado TU-CLIENTE</span>
-            <h3>+40% de eficiencia operativa</h3>
-            <p>Integración de software, cámaras e IA en una sola plataforma para TU-CLIENTE.</p>
+            <span class="case-tag">Logística</span>
+            <span class="case-metric">-50%</span>
+            <h3>Mermas en depósito</h3>
+            <p>Control por cámaras y sensores que detectan movimientos anómalos antes de que se conviertan en pérdida.</p>
           </article>
         </div>
+        <!-- ponytail: cap de casos en landing. Cuando haya +6, mover el resto a una página /casos y enlazar desde acá. -->
+        <p class="cases-more reveal"><a href="#contacto">¿Tenés un caso parecido? Contanos tu proyecto →</a></p>
       </div>
     </section>
-
-    <!-- ENFOQUE -->
     <section id="enfoque" class="section">
       <div class="container">
         <h2 class="reveal">Por qué una integradora</h2>
@@ -207,28 +217,6 @@
           <li class="reveal">Software, seguridad e IA diseñados para convivir, no parcheados después.</li>
           <li class="reveal">Soluciones a medida, sin plataformas genéricas que no calzan.</li>
         </ul>
-      </div>
-    </section>
-
-    <!-- STACK -->
-    <section id="stack" class="section section-alt">
-      <div class="container">
-        <h2 class="reveal">Stack tecnológico</h2>
-        <p class="section-sub reveal">Las tecnologías que dominamos para construir tu solución.</p>
-        <div class="stack-cloud reveal">
-          <span class="chip">Node.js</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">React</span>
-          <span class="chip">Python</span>
-          <span class="chip">Docker</span>
-          <span class="chip">PostgreSQL</span>
-          <span class="chip">AWS</span>
-          <span class="chip">TensorFlow</span>
-          <span class="chip">ONVIF / RTSP</span>
-          <span class="chip">NVIDIA Jetson</span>
-          <span class="chip">Kubernetes</span>
-          <span class="chip">Llama / OpenAI</span>
-        </div>
       </div>
     </section>
 
@@ -250,16 +238,18 @@
     <section id="testimonios" class="section section-alt">
       <div class="container">
         <h2 class="reveal">Lo que dicen nuestros clientes</h2>
-        <div class="grid testimonials">
-          <blockquote class="card quote reveal">
+      </div>
+      <div class="carousel" aria-label="Testimonios de clientes">
+        <div class="carousel-track">
+          <blockquote class="card quote carousel-slide">
             <p>"Nos integraron el software con las cámaras en una sola plataforma. Dejamos de coordinar tres proveedores."</p>
             <footer>— Gerente de Operaciones, <em>TU-CLIENTE-1</em></footer>
           </blockquote>
-          <blockquote class="card quote reveal">
+          <blockquote class="card quote carousel-slide">
             <p>"El agente de IA que nos armaron atendió el 70% de las consultas el primer mes."</p>
             <footer>— Directora de Atención, <em>TU-CLIENTE-2</em></footer>
           </blockquote>
-          <blockquote class="card quote reveal">
+          <blockquote class="card quote carousel-slide">
             <p>"Pocas veces un proveedor entiende el negocio antes de proponer la solución."</p>
             <footer>— CTO, <em>TU-CLIENTE-3</em></footer>
           </blockquote>
@@ -297,23 +287,23 @@
       <div class="container">
         <h2 class="reveal">Preguntas frecuentes</h2>
         <div class="faq-list">
-          <details class="reveal">
+          <details>
             <summary>¿Trabajan con empresas de cualquier tamaño?</summary>
             <p>Arrancamos proyectos chicos y crecemos con vos. Hay soluciones desde una automatización puntual hasta infraestructura completa.</p>
           </details>
-          <details class="reveal">
+          <details>
             <summary>¿Venden el hardware de las cámaras o solo el software?</summary>
             <p>Depende del proyecto: podemos proveer la instalación completa o integrarnos con el equipamiento que ya tenés.</p>
           </details>
-          <details class="reveal">
+          <details>
             <summary>¿Hacen mantenimiento después de entregar?</summary>
             <p>Sí, todos los proyectos incluyen soporte continuo. No te dejamos solos después de la firma.</p>
           </details>
-          <details class="reveal">
+          <details>
             <summary>¿Los agentes de IA pueden integrarse con nuestros sistemas?</summary>
             <p>Sí. Los conectamos con tus bases de datos, herramientas y procesos existentes.</p>
           </details>
-          <details class="reveal">
+          <details>
             <summary>¿Cómo arranca un proyecto?</summary>
             <p>Con una reunión de descubrimiento gratuita. Nos contás el problema y te proponemos el primer paso.</p>
           </details>
