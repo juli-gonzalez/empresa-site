@@ -60,6 +60,65 @@
 
   for (const stat of document.querySelectorAll('.stat')) counterObserver.observe(stat);
 
+  // Testimonios: carousel con slide activo + autoplay
+  const carousel = document.querySelector('.carousel');
+  if (carousel) {
+    const slides = [...carousel.querySelectorAll('.carousel-slide')];
+
+    const setActive = () => {
+      let best = null;
+      let bestDist = Infinity;
+      const center = carousel.scrollLeft + carousel.clientWidth / 2;
+      for (const slide of slides) {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+        const dist = Math.abs(slideCenter - center);
+        if (dist < bestDist) { bestDist = dist; best = slide; }
+      }
+      for (const s of slides) s.classList.toggle('active', s === best);
+    };
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer = null;
+    let inView = true;
+
+    const advance = () => {
+      // Solo mueve el eje X del carousel; nunca el scroll de la página.
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      if (carousel.scrollLeft >= maxScroll - 1) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+      }
+    };
+
+    const startAutoplay = () => {
+      if (reducedMotion || !inView) return;
+      stopAutoplay();
+      timer = setInterval(advance, 4000);
+    };
+
+    const stopAutoplay = () => {
+      if (timer) { clearInterval(timer); timer = null; }
+    };
+
+    carousel.addEventListener('scroll', setActive, { passive: true });
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
+    carousel.addEventListener('touchend', startAutoplay);
+
+    const visibilityObserver = new IntersectionObserver(
+      (entries) => {
+        inView = entries[0].isIntersecting;
+        if (inView) startAutoplay(); else stopAutoplay();
+      },
+      { threshold: 0.2 }
+    );
+    visibilityObserver.observe(carousel);
+
+    setActive();
+  }
+
   // Form
   const form = document.getElementById('contact-form');
   const status = document.querySelector('.form-status');
