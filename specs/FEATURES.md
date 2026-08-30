@@ -9,6 +9,7 @@ Se actualiza en cada paso del flujo — no es una foto, es el estado real.
 |----|---------|--------|------------|----------|---------------|---------------|-------|
 | 001 | [Refinar landing — enfoque en valor y resultados](001-refine-landing-value/spec.md) | implementing — tareas T001-T021 ejecutadas, polish T022-T026 en curso | opencode | no | — | — | |
 | 002 | [Boost conversión — claridad, confianza y acabado premium](002-boost-conversion/spec.md) | implementing — 30/30 tareas ejecutadas, pendiente validación visual | opencode | no | — | — | Iteración sobre base 001 |
+| 003 | Rebrand a Sentry + rediseño visual "consola de vigilancia" | done — mergeado a develop (PR #5) y a master vía release/0.2.0 (PR #6) | Claude Code | sí — revisado y aprobado en chat por el usuario | — | — | No pasó por Spec Kit (sin carpeta `specs/003-.../`); se planificó vía brainstorming/plan mode |
 
 ## Cómo se llena
 
